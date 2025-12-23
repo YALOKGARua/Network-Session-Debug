@@ -1,0 +1,240 @@
+{
+	"menu_id": "nsd_options",
+	"parent_menu_id": "blt_options",
+	"title": "nsd_options_title",
+	"description": "nsd_options_desc",
+	"back_callback": "nsd_save",
+	"items": [
+		{
+			"type": "toggle",
+			"id": "nsd_enabled",
+			"title": "Enabled",
+			"description": "Master enable switch.",
+			"callback": "nsd_toggle_enabled",
+			"value": "enabled",
+			"default_value": true,
+			"localized": false
+		},
+		{
+			"type": "toggle",
+			"id": "nsd_show_lobby",
+			"title": "Lobby: show under player name",
+			"description": "Show network line under each player name in briefing/lobby.",
+			"callback": "nsd_toggle_lobby_line",
+			"value": "show_lobby_line",
+			"default_value": true,
+			"localized": false
+		},
+		{
+			"type": "toggle",
+			"id": "nsd_show_ingame_hud",
+			"title": "In-game: show card HUD",
+			"description": "Show the on-screen card HUD during gameplay.",
+			"callback": "nsd_toggle_ingame_card",
+			"value": "show_ingame_card",
+			"default_value": true,
+			"localized": false
+		},
+		{
+			"type": "divider",
+			"size": 12
+		},
+		{
+			"type": "toggle",
+			"id": "nsd_hud_edit_mode",
+			"title": "HUD layout: edit mode",
+			"description": "Enable live HUD editing. Arrows move; Ctrl+Arrows scale/alpha; Shift accelerates.",
+			"callback": "nsd_toggle_hud_edit_mode",
+			"value": "hud_edit_mode",
+			"default_value": false,
+			"localized": false
+		},
+		{
+			"type": "button",
+			"id": "nsd_reset_hud_layout",
+			"title": "HUD layout: reset to defaults",
+			"description": "Reset HUD position/scale/alpha/anchor to defaults.",
+			"callback": "nsd_reset_hud_layout",
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_hud_x",
+			"title": "HUD X (0..1)",
+			"description": "Horizontal position as screen fraction.",
+			"callback": "nsd_set_hud_x",
+			"value": "hud_x",
+			"default_value": 0.96,
+			"min": 0.0,
+			"max": 1.0,
+			"step": 0.005,
+			"display_precision": 3,
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_hud_y",
+			"title": "HUD Y (0..1)",
+			"description": "Vertical position as screen fraction.",
+			"callback": "nsd_set_hud_y",
+			"value": "hud_y",
+			"default_value": 0.18,
+			"min": 0.0,
+			"max": 1.0,
+			"step": 0.005,
+			"display_precision": 3,
+			"localized": false
+		},
+		{
+			"type": "multiple_choice",
+			"id": "nsd_hud_anchor",
+			"title": "HUD anchor",
+			"description": "Which point of the card is anchored to X/Y.",
+			"callback": "nsd_set_hud_anchor",
+			"value": "hud_anchor",
+			"default_value": "top_right",
+			"items": ["Top Left", "Top Right", "Bottom Left", "Bottom Right", "Center"],
+			"item_values": ["top_left", "top_right", "bottom_left", "bottom_right", "center"],
+			"localized": false,
+			"localized_items": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_hud_scale",
+			"title": "HUD scale",
+			"description": "Scale of the in-game card HUD.",
+			"callback": "nsd_set_hud_scale",
+			"value": "hud_scale",
+			"default_value": 1.0,
+			"min": 0.5,
+			"max": 2.0,
+			"step": 0.05,
+			"display_precision": 2,
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_hud_alpha",
+			"title": "HUD alpha",
+			"description": "Transparency of the in-game card HUD.",
+			"callback": "nsd_set_hud_alpha",
+			"value": "hud_alpha",
+			"default_value": 1.0,
+			"min": 0.2,
+			"max": 1.0,
+			"step": 0.05,
+			"display_precision": 2,
+			"localized": false
+		},
+		{
+			"type": "toggle",
+			"id": "nsd_verbose",
+			"title": "Verbose mode",
+			"description": "Show events and extended details.",
+			"callback": "nsd_toggle_verbose",
+			"value": "verbose",
+			"default_value": false,
+			"localized": false
+		},
+		{
+			"type": "divider",
+			"size": 12
+		},
+		{
+			"type": "slider",
+			"id": "nsd_sample_interval",
+			"title": "Update interval (seconds)",
+			"description": "Sampling interval for ping/jitter/queue.",
+			"callback": "nsd_set_sample_interval",
+			"value": "sample_interval",
+			"default_value": 0.25,
+			"min": 0.1,
+			"max": 1.0,
+			"step": 0.05,
+			"display_precision": 2,
+			"localized": false
+		},
+		{
+			"type": "divider",
+			"size": 12
+		},
+		{
+			"type": "slider",
+			"id": "nsd_ping_warn",
+			"title": "Ping warn (ms)",
+			"description": "Yellow threshold for ping.",
+			"callback": "nsd_set_ping_warn",
+			"value": "ping_warn",
+			"default_value": 160,
+			"min": 50,
+			"max": 400,
+			"step": 10,
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_ping_bad",
+			"title": "Ping bad (ms)",
+			"description": "Red threshold for ping.",
+			"callback": "nsd_set_ping_bad",
+			"value": "ping_bad",
+			"default_value": 240,
+			"min": 80,
+			"max": 600,
+			"step": 10,
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_jitter_warn",
+			"title": "Jitter warn (ms)",
+			"description": "Yellow threshold for jitter.",
+			"callback": "nsd_set_jitter_warn",
+			"value": "jitter_warn",
+			"default_value": 25,
+			"min": 5,
+			"max": 120,
+			"step": 1,
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_jitter_bad",
+			"title": "Jitter bad (ms)",
+			"description": "Red threshold for jitter.",
+			"callback": "nsd_set_jitter_bad",
+			"value": "jitter_bad",
+			"default_value": 45,
+			"min": 10,
+			"max": 180,
+			"step": 1,
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_queue_warn",
+			"title": "Queue warn",
+			"description": "Yellow threshold for send queue size.",
+			"callback": "nsd_set_queue_warn",
+			"value": "queue_warn",
+			"default_value": 60,
+			"min": 0,
+			"max": 300,
+			"step": 5,
+			"localized": false
+		},
+		{
+			"type": "slider",
+			"id": "nsd_queue_bad",
+			"title": "Queue bad",
+			"description": "Red threshold for send queue size.",
+			"callback": "nsd_set_queue_bad",
+			"value": "queue_bad",
+			"default_value": 120,
+			"min": 0,
+			"max": 600,
+			"step": 5,
+			"localized": false
+		}
+	]
+}

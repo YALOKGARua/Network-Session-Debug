@@ -1,0 +1,59 @@
+{
+	"name": "Network Session Debug",
+	"description": "Host-focused network telemetry HUD (ping/jitter/queues/state) with per-peer dump.",
+	"author": "YALOKGAR",
+	"version": "0.2.0",
+	"blt_version": 2,
+	"priority": 55,
+	"color": "60 160 255",
+	"keybinds": [
+		{
+			"keybind_id": "nsd_toggle",
+			"name": "Network Session Debug: Toggle HUD",
+			"description": "Toggle Network Session Debug HUD.",
+			"script_path": "lua/keybinds/toggle.lua",
+			"run_in_menu": true,
+			"run_in_game": true,
+			"show_in_menu": true,
+			"localized": false
+		},
+		{
+			"keybind_id": "nsd_toggle_mode",
+			"name": "Network Session Debug: Toggle Mode",
+			"description": "Toggle compact/verbose mode.",
+			"script_path": "lua/keybinds/toggle_mode.lua",
+			"run_in_menu": true,
+			"run_in_game": true,
+			"show_in_menu": true,
+			"localized": false
+		},
+		{
+			"keybind_id": "nsd_dump",
+			"name": "Network Session Debug: Dump Session",
+			"description": "Dump current session and peer details to the SuperBLT log.",
+			"script_path": "lua/keybinds/dump.lua",
+			"run_in_menu": true,
+			"run_in_game": true,
+			"show_in_menu": true,
+			"localized": false
+		},
+		{
+			"keybind_id": "nsd_toggle_hud_edit",
+			"name": "Network Session Debug: Toggle HUD Edit",
+			"description": "Toggle HUD layout edit mode.",
+			"script_path": "lua/keybinds/toggle_hud_edit.lua",
+			"run_in_menu": true,
+			"run_in_game": true,
+			"show_in_menu": true,
+			"localized": false
+		}
+	],
+	"hooks": [
+		{ "hook_id": "lib/setups/menusetup", "script_path": "lua/nsd.lua" },
+		{ "hook_id": "lib/setups/gamesetup", "script_path": "lua/nsd.lua" },
+		{ "hook_id": "lib/managers/localizationmanager", "script_path": "lua/nsd_loc.lua" },
+		{ "hook_id": "lib/network/base/basenetworksession", "script_path": "lua/nsd_session_hooks.lua" },
+		{ "hook_id": "lib/managers/menumanager", "script_path": "lua/nsd_menu.lua" },
+		{ "hook_id": "lib/managers/hud/hudmissionbriefing", "script_path": "lua/nsd_hudmissionbriefing.lua" }
+	]
+}
